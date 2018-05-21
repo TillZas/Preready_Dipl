@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html class="v2" dir="ltr" style="height: 100%;" lang="ru"><head><script type="text/javascript" async="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/filter-domains"></script>
+<link href="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/2437439463-css_bundle_v2.css" rel="stylesheet" type="text/css">
+<meta content="width=1100" name="viewport">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="blogger" name="generator">
+<link href="http://corwal.blogspot.com/favicon.ico" rel="icon" type="image/x-icon">
+<link href="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/blog-post_20.htm" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="Quiet place - Atom" href="http://corwal.blogspot.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="Quiet place - RSS" href="http://corwal.blogspot.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="Quiet place - Atom" href="https://www.blogger.com/feeds/1800785138888746905/posts/default">
+
+<link rel="alternate" type="application/atom+xml" title="Quiet place - Atom" href="http://corwal.blogspot.com/feeds/1651554667756387840/comments/default">
+<!--[if IE]><script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/3658603751-ieretrofit.js"></script>
+<![endif]-->
+<link href="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/k.gif" rel="image_src">
+<meta content="http://corwal.blogspot.com/2013/11/blog-post_20.html" property="og:url">
+<meta content="Алгоритм скелетизации Зонга-Суня (Zhang-Suen)" property="og:title">
+<meta content=" Один из методов утоньшения линий на изображении.   " property="og:description">
+<meta content="http://2.bp.blogspot.com/-YJjP-XHsxYA/UougEITv8_I/AAAAAAAAACo/JJlBXx3T8wQ/w1200-h630-p-k-no-nu/k.gif" property="og:image">
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Quiet place: Алгоритм скелетизации Зонга-Суня (Zhang-Suen)</title>
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Awesome Inc.
+Designer: Tina Chen
+URL:      tinachen.org
+----------------------------------------------- */
+
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 13px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+background: #000000 url(//www.blogblog.com/1kt/awesomeinc/body_background_dark.png) repeat scroll top left;
+}
+html body .content-outer {
+min-width: 0;
+max-width: 100%;
+width: 100%;
+}
+a:link {
+text-decoration: none;
+color: #888888;
+}
+a:visited {
+text-decoration: none;
+color: #444444;
+}
+a:hover {
+text-decoration: underline;
+color: #cccccc;
+}
+.body-fauxcolumn-outer .cap-top {
+position: absolute;
+z-index: 1;
+height: 276px;
+width: 100%;
+background: transparent url(//www.blogblog.com/1kt/awesomeinc/body_gradient_dark.png) repeat-x scroll top left;
+_background-image: none;
+}
+/* Columns
+----------------------------------------------- */
+.content-inner {
+padding: 0;
+}
+.header-inner .section {
+margin: 0 16px;
+}
+.tabs-inner .section {
+margin: 0 16px;
+}
+.main-inner {
+padding-top: 30px;
+}
+.main-inner .column-center-inner,
+.main-inner .column-left-inner,
+.main-inner .column-right-inner {
+padding: 0 5px;
+}
+*+html body .main-inner .column-center-inner {
+margin-top: -30px;
+}
+#layout .main-inner .column-center-inner {
+margin-top: 0;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+margin: 0 0 0 0;
+background: transparent none repeat scroll 0 0;
+}
+.Header h1 {
+font: normal bold 40px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+text-shadow: 0 0 -1px #000000;
+}
+.Header h1 a {
+color: #ffffff;
+}
+.Header .description {
+font: normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+.header-inner .Header .titlewrapper,
+.header-inner .Header .descriptionwrapper {
+padding-left: 0;
+padding-right: 0;
+margin-bottom: 0;
+}
+.header-inner .Header .titlewrapper {
+padding-top: 22px;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-outer {
+overflow: hidden;
+position: relative;
+background: #141414 none repeat scroll 0 0;
+}
+#layout .tabs-outer {
+overflow: visible;
+}
+.tabs-cap-top, .tabs-cap-bottom {
+position: absolute;
+width: 100%;
+border-top: 1px solid #222222;
+}
+.tabs-cap-bottom {
+bottom: 0;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+margin: 0;
+padding: .6em 1.5em;
+font: normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+border-top: 1px solid #222222;
+border-bottom: 1px solid #222222;
+border-left: 1px solid #222222;
+height: 16px;
+line-height: 16px;
+}
+.tabs-inner .widget li:last-child a {
+border-right: 1px solid #222222;
+}
+.tabs-inner .widget li.selected a, .tabs-inner .widget li a:hover {
+background: #444444 none repeat-x scroll 0 -100px;
+color: #ffffff;
+}
+/* Headings
+----------------------------------------------- */
+h2 {
+font: normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+/* Widgets
+----------------------------------------------- */
+.main-inner .section {
+margin: 0 27px;
+padding: 0;
+}
+.main-inner .column-left-outer,
+.main-inner .column-right-outer {
+margin-top: 0;
+}
+#layout .main-inner .column-left-outer,
+#layout .main-inner .column-right-outer {
+margin-top: 0;
+}
+.main-inner .column-left-inner,
+.main-inner .column-right-inner {
+background: transparent none repeat 0 0;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+#layout .main-inner .column-left-inner,
+#layout .main-inner .column-right-inner {
+margin-top: 0;
+}
+.sidebar .widget {
+font: normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+.sidebar .widget a:link {
+color: #888888;
+}
+.sidebar .widget a:visited {
+color: #444444;
+}
+.sidebar .widget a:hover {
+color: #cccccc;
+}
+.sidebar .widget h2 {
+text-shadow: 0 0 -1px #000000;
+}
+.main-inner .widget {
+background-color: #141414;
+border: 1px solid #222222;
+padding: 0 15px 15px;
+margin: 20px -16px;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+.main-inner .widget h2 {
+margin: 0 -15px;
+padding: .6em 15px .5em;
+border-bottom: 1px solid #000000;
+}
+.footer-inner .widget h2 {
+padding: 0 0 .4em;
+border-bottom: 1px solid #000000;
+}
+.main-inner .widget h2 + div, .footer-inner .widget h2 + div {
+border-top: 1px solid #222222;
+padding-top: 8px;
+}
+.main-inner .widget .widget-content {
+margin: 0 -15px;
+padding: 7px 15px 0;
+}
+.main-inner .widget ul, .main-inner .widget #ArchiveList ul.flat {
+margin: -8px -15px 0;
+padding: 0;
+list-style: none;
+}
+.main-inner .widget #ArchiveList {
+margin: -8px 0 0;
+}
+.main-inner .widget ul li, .main-inner .widget #ArchiveList ul.flat li {
+padding: .5em 15px;
+text-indent: 0;
+color: #666666;
+border-top: 1px solid #222222;
+border-bottom: 1px solid #000000;
+}
+.main-inner .widget #ArchiveList ul li {
+padding-top: .25em;
+padding-bottom: .25em;
+}
+.main-inner .widget ul li:first-child, .main-inner .widget #ArchiveList ul.flat li:first-child {
+border-top: none;
+}
+.main-inner .widget ul li:last-child, .main-inner .widget #ArchiveList ul.flat li:last-child {
+border-bottom: none;
+}
+.post-body {
+position: relative;
+}
+.main-inner .widget .post-body ul {
+padding: 0 2.5em;
+margin: .5em 0;
+list-style: disc;
+}
+.main-inner .widget .post-body ul li {
+padding: 0.25em 0;
+margin-bottom: .25em;
+color: #ffffff;
+border: none;
+}
+.footer-inner .widget ul {
+padding: 0;
+list-style: none;
+}
+.widget .zippy {
+color: #666666;
+}
+/* Posts
+----------------------------------------------- */
+body .main-inner .Blog {
+padding: 0;
+margin-bottom: 1em;
+background-color: transparent;
+border: none;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+.main-inner .section:last-child .Blog:last-child {
+padding: 0;
+margin-bottom: 1em;
+}
+.main-inner .widget h2.date-header {
+margin: 0 -15px 1px;
+padding: 0 0 0 0;
+font: normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #666666;
+background: transparent none no-repeat scroll top left;
+border-top: 0 solid #222222;
+border-bottom: 1px solid #000000;
+-moz-border-radius-topleft: 0;
+-moz-border-radius-topright: 0;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+position: static;
+bottom: 100%;
+right: 15px;
+text-shadow: 0 0 -1px #000000;
+}
+.main-inner .widget h2.date-header span {
+font: normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+display: block;
+padding: .5em 15px;
+border-left: 0 solid #222222;
+border-right: 0 solid #222222;
+}
+.date-outer {
+position: relative;
+margin: 30px 0 20px;
+padding: 0 15px;
+background-color: #141414;
+border: 1px solid #222222;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+.date-outer:first-child {
+margin-top: 0;
+}
+.date-outer:last-child {
+margin-bottom: 20px;
+-moz-border-radius-bottomleft: 0;
+-moz-border-radius-bottomright: 0;
+-webkit-border-bottom-left-radius: 0;
+-webkit-border-bottom-right-radius: 0;
+-goog-ms-border-bottom-left-radius: 0;
+-goog-ms-border-bottom-right-radius: 0;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+}
+.date-posts {
+margin: 0 -15px;
+padding: 0 15px;
+clear: both;
+}
+.post-outer, .inline-ad {
+border-top: 1px solid #222222;
+margin: 0 -15px;
+padding: 15px 15px;
+}
+.post-outer {
+padding-bottom: 10px;
+}
+.post-outer:first-child {
+padding-top: 0;
+border-top: none;
+}
+.post-outer:last-child, .inline-ad:last-child {
+border-bottom: none;
+}
+.post-body {
+position: relative;
+}
+.post-body img {
+padding: 8px;
+background: #222222;
+border: 1px solid transparent;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+}
+h3.post-title, h4 {
+font: normal bold 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+h3.post-title a {
+font: normal bold 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+h3.post-title a:hover {
+color: #cccccc;
+text-decoration: underline;
+}
+.post-header {
+margin: 0 0 1em;
+}
+.post-body {
+line-height: 1.4;
+}
+.post-outer h2 {
+color: #ffffff;
+}
+.post-footer {
+margin: 1.5em 0 0;
+}
+#blog-pager {
+padding: 15px;
+font-size: 120%;
+background-color: #141414;
+border: 1px solid #222222;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+-moz-border-radius-topleft: 0;
+-moz-border-radius-topright: 0;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+-goog-ms-border-top-left-radius: 0;
+-goog-ms-border-top-right-radius: 0;
+border-top-left-radius: 0;
+border-top-right-radius-topright: 0;
+margin-top: 1em;
+}
+.blog-feeds, .post-feeds {
+margin: 1em 0;
+text-align: center;
+color: #ffffff;
+}
+.blog-feeds a, .post-feeds a {
+color: #888888;
+}
+.blog-feeds a:visited, .post-feeds a:visited {
+color: #444444;
+}
+.blog-feeds a:hover, .post-feeds a:hover {
+color: #cccccc;
+}
+.post-outer .comments {
+margin-top: 2em;
+}
+/* Comments
+----------------------------------------------- */
+.comments .comments-content .icon.blog-author {
+background-repeat: no-repeat;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+}
+.comments .comments-content .loadmore a {
+border-top: 1px solid #222222;
+border-bottom: 1px solid #222222;
+}
+.comments .continue {
+border-top: 2px solid #222222;
+}
+/* Footer
+----------------------------------------------- */
+.footer-outer {
+margin: -0 0 -1px;
+padding: 0 0 0;
+color: #ffffff;
+overflow: hidden;
+}
+.footer-fauxborder-left {
+border-top: 1px solid #222222;
+background: #141414 none repeat scroll 0 0;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+margin: 0 -0;
+}
+/* Mobile
+----------------------------------------------- */
+body.mobile {
+background-size: auto;
+}
+.mobile .body-fauxcolumn-outer {
+background: transparent none repeat scroll top left;
+}
+*+html body.mobile .main-inner .column-center-inner {
+margin-top: 0;
+}
+.mobile .main-inner .widget {
+padding: 0 0 15px;
+}
+.mobile .main-inner .widget h2 + div,
+.mobile .footer-inner .widget h2 + div {
+border-top: none;
+padding-top: 0;
+}
+.mobile .footer-inner .widget h2 {
+padding: 0.5em 0;
+border-bottom: none;
+}
+.mobile .main-inner .widget .widget-content {
+margin: 0;
+padding: 7px 0 0;
+}
+.mobile .main-inner .widget ul,
+.mobile .main-inner .widget #ArchiveList ul.flat {
+margin: 0 -15px 0;
+}
+.mobile .main-inner .widget h2.date-header {
+right: 0;
+}
+.mobile .date-header span {
+padding: 0.4em 0;
+}
+.mobile .date-outer:first-child {
+margin-bottom: 0;
+border: 1px solid #222222;
+-moz-border-radius-topleft: 0;
+-moz-border-radius-topright: 0;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+-goog-ms-border-top-left-radius: 0;
+-goog-ms-border-top-right-radius: 0;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+.mobile .date-outer {
+border-color: #222222;
+border-width: 0 1px 1px;
+}
+.mobile .date-outer:last-child {
+margin-bottom: 0;
+}
+.mobile .main-inner {
+padding: 0;
+}
+.mobile .header-inner .section {
+margin: 0;
+}
+.mobile .post-outer, .mobile .inline-ad {
+padding: 5px 0;
+}
+.mobile .tabs-inner .section {
+margin: 0 10px;
+}
+.mobile .main-inner .widget h2 {
+margin: 0;
+padding: 0;
+}
+.mobile .main-inner .widget h2.date-header span {
+padding: 0;
+}
+.mobile .main-inner .widget .widget-content {
+margin: 0;
+padding: 7px 0 0;
+}
+.mobile #blog-pager {
+border: 1px solid transparent;
+background: #141414 none repeat scroll 0 0;
+}
+.mobile .main-inner .column-left-inner,
+.mobile .main-inner .column-right-inner {
+background: transparent none repeat 0 0;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+-goog-ms-box-shadow: none;
+box-shadow: none;
+}
+.mobile .date-posts {
+margin: 0;
+padding: 0;
+}
+.mobile .footer-fauxborder-left {
+margin: 0;
+border-top: inherit;
+}
+.mobile .main-inner .section:last-child .Blog:last-child {
+margin-bottom: 0;
+}
+.mobile-index-contents {
+color: #ffffff;
+}
+.mobile .mobile-link-button {
+background: #888888 none repeat scroll 0 0;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+color: #ffffff;
+}
+.mobile .tabs-inner .PageList .widget-content {
+background: transparent;
+border-top: 1px solid;
+border-color: #222222;
+color: #ffffff;
+}
+.mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
+border-left: 1px solid #222222;
+}
+
+--></style>
+<style id="template-skin-1" type="text/css"><!--
+body {
+min-width: 960px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 960px;
+max-width: 960px;
+_width: 960px;
+}
+.main-inner .columns {
+padding-left: 0px;
+padding-right: 260px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0px;
+right: 260px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0px") -
+parseInt("260px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0px;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 260px;
+}
+.main-inner .column-left-outer {
+width: 0px;
+right: 100%;
+margin-left: -0px;
+}
+.main-inner .column-right-outer {
+width: 260px;
+margin-right: -260px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+body#layout div.add_widget {
+padding: 8px;
+}
+body#layout div.add_widget a {
+margin-left: 32px;
+}
+--></style>
+<link href="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/authorization.css" media="all" onload="if(media!='all')media='all'" rel="stylesheet"><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=1800785138888746905&amp;zx=fd296728-fd00-479b-8b10-6578e252c885' rel='stylesheet'/></noscript>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/translateelement.css"><script src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/cbgapi.loaded_2" async=""></script><script src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/cbgapi.loaded_1" async=""></script><script src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/cbgapi.loaded_0" async=""></script><script type="text/javascript" charset="UTF-8" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/main_ru.js"></script><script async="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/lazy.js"></script><script type="text/javascript" charset="UTF-8" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/element_main.js"></script></head>
+<body class=" variant-dark" style="position: relative; min-height: 100%; top: 0px;">
+<div class="navbar no-items section" id="navbar" name="Панель навигации">
+</div>
+<div class="body-fauxcolumns">
+<div class="fauxcolumn-outer body-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="content-fauxcolumns">
+<div class="fauxcolumn-outer content-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content-outer">
+<div class="content-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left content-fauxborder-left">
+<div class="fauxborder-right content-fauxborder-right"></div>
+<div class="content-inner">
+<header>
+<div class="header-outer">
+<div class="header-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left header-fauxborder-left">
+<div class="fauxborder-right header-fauxborder-right"></div>
+<div class="region-inner header-inner">
+<div class="header section" id="header" name="Заголовок"><div class="widget Header" data-version="1" id="Header1">
+<div id="header-inner">
+<div class="titlewrapper">
+<h1 class="title">
+<a href="http://corwal.blogspot.com/">
+Quiet place
+</a>
+</h1>
+</div>
+<div class="descriptionwrapper">
+<p class="description"><span>
+</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="header-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</header>
+<div class="tabs-outer">
+<div class="tabs-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left tabs-fauxborder-left">
+<div class="fauxborder-right tabs-fauxborder-right"></div>
+<div class="region-inner tabs-inner">
+<div class="tabs no-items section" id="crosscol" name="Поперечный столбец"></div>
+<div class="tabs no-items section" id="crosscol-overflow" name="Cross-Column 2"></div>
+</div>
+</div>
+<div class="tabs-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="main-outer">
+<div class="main-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left main-fauxborder-left">
+<div class="fauxborder-right main-fauxborder-right"></div>
+<div class="region-inner main-inner">
+<div class="columns fauxcolumns">
+<div class="fauxcolumn-outer fauxcolumn-center-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-left-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-right-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class="columns-inner">
+<div class="column-center-outer">
+<div class="column-center-inner">
+<div class="main section" id="main" name="Основной"><div class="widget Blog" data-version="1" id="Blog1">
+<div class="blog-posts hfeed">
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>среда, 20 ноября 2013 г.</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry uncustomized-post-template" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<meta content="http://2.bp.blogspot.com/-YJjP-XHsxYA/UougEITv8_I/AAAAAAAAACo/JJlBXx3T8wQ/s1600/k.gif" itemprop="image_url">
+<meta content="1800785138888746905" itemprop="blogId">
+<meta content="1651554667756387840" itemprop="postId">
+<a name="1651554667756387840"></a>
+<h3 class="post-title entry-title" itemprop="name">
+Алгоритм скелетизации Зонга-Суня (Zhang-Suen)
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-1651554667756387840" itemprop="description articleBody">
+<div style="text-align: justify;">
+<span style="font-family: inherit;"><span id="AbzText">Один из методов утоньшения линий на изображении.</span></span></div>
+<br>
+<a name="more"></a><div style="text-align: justify;">
+<br></div>
+<br>
+<div style="text-align: justify;">
+Основным предназначением любого алгоритма скелетизации является 
+максимальное утоншиение всех линий на бинарном изображении, что приводит
+ к получению скелета, в котором все линии имеют толщину в один пиксель.</div>
+<div class="separator" style="clear: both; text-align: center;">
+<br></div>
+<div style="text-align: justify;">
+<table style="width: 200px;" border="1"><tbody>
+<tr><td align="center"><a href="http://2.bp.blogspot.com/-YJjP-XHsxYA/UougEITv8_I/AAAAAAAAACo/JJlBXx3T8wQ/s1600/k.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/k.gif" border="0"></a></td><td align="center"><a href="http://2.bp.blogspot.com/-u3_eC6Wehlg/UougIWPddII/AAAAAAAAADI/IMn8_bM6KHA/s1600/m.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/m.gif" border="0"></a></td>
+    <td align="center"><a href="http://4.bp.blogspot.com/-A5hgD25ahrk/UougISaUMEI/AAAAAAAAAC0/iJw5wJJY3gk/s1600/o.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/o.gif" border="0"></a></td>
+    <td align="center"><a href="http://1.bp.blogspot.com/-uEN2FUT2XSs/UougIc0lcTI/AAAAAAAAACw/iMDxC0UPIb0/s1600/s.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/s.gif" border="0"></a></td>
+    <td align="center"><a href="http://4.bp.blogspot.com/-0LBZUvFefSE/UougInDvzuI/AAAAAAAAAC4/SmLlkSLBlIc/s1600/w.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/w.gif" border="0"></a></td>
+  </tr>
+<tr>
+    <td><div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-0fY-YBWz1eA/Uougyl6LyRI/AAAAAAAAADU/tFdBpKId8Kc/s1600/k2.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/k2.gif" border="0"></a></div>
+</td>
+    <td><a href="http://3.bp.blogspot.com/-v9oE5qkvdEc/Uougyh2RpBI/AAAAAAAAADQ/gTe0qfecIf0/s1600/m2.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em; text-align: center;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/m2.gif" border="0"></a></td>
+    <td><a href="http://2.bp.blogspot.com/-CnWKUqrjLgQ/Uougyl1A4cI/AAAAAAAAADs/3dAIWBsNK1Y/s1600/o2.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em; text-align: center;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/o2.gif" border="0"></a></td>
+    <td><a href="http://3.bp.blogspot.com/-B2RSboT4zec/UougzEr_NQI/AAAAAAAAADc/HqYf1Et7uSM/s1600/s2.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em; text-align: center;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/s2.gif" border="0"></a></td>
+    <td><a href="http://1.bp.blogspot.com/-uNgIr-MYBAs/UougzdCzC6I/AAAAAAAAADk/NZgF19z4FC8/s1600/w2.gif" imageanchor="1" style="margin-left: 0em; margin-right: 0em; text-align: center;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/w2.gif" border="0"></a></td></tr>
+</tbody></table>
+</div>
+<div style="text-align: justify;">
+<br></div>
+<br>
+<div style="text-align: justify;">
+Такой растровый скелет является весьма удобным для векторизации.</div>
+<div style="text-align: justify;">
+<br></div>
+<div style="text-align: justify;">
+Скелетизация изображения, как правило, реализуется за несколько 
+проходов. За один проход снимаются все граничные пиксели. Данный проход 
+повторяется пока на изображении не останутся "не удаляемые" пиксели.</div>
+<div style="text-align: justify;">
+<br></div>
+<div style="text-align: justify;">
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-NkdorR42WFI/UouhG_quOFI/AAAAAAAAAD4/GUDLOdRXLRs/s1600/Skeletize.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/Skeletize.gif" border="0"></a></div>
+<br></div>
+<div style="text-align: justify;">
+Рассмотрим алгоритм скелетизации Зонга-Суня.</div>
+<div style="text-align: justify;">
+Введем следующую матрицу:</div>
+<table style="width: 200px;" border="1"><tbody>
+<tr><td align="center">P9</td>
+    <td align="center">P2</td>
+    <td align="center">P3</td>
+  </tr>
+<tr>
+    <td align="center">P8</td>
+    <td align="center">P1</td>
+    <td align="center">P4</td>
+  </tr>
+<tr>
+    <td align="center">P7</td>
+    <td align="center">P6</td>
+    <td align="center">P5</td></tr>
+</tbody></table>
+<br>
+<div style="text-align: justify;">
+Данная матрица попиксельно накладывается на изображение таким образом, 
+чтобы P1 поочередно совмещался со всеми пикселями изображения (там где 
+это возможно). Стоит уточнить, что белый пиксель на изображении имеет 
+значение 0, а черный 1.</div>
+<div style="text-align: justify;">
+Каждый проход по изображению состоит из двух подитераций.</div>
+<div style="text-align: justify;">
+Подитерация 1:</div>
+<div style="text-align: justify;">
+Пиксель P1 можно удалить если выполняются следующие условия:</div>
+<div style="text-align: justify;">
+1) 2 &lt;= P2+P3+...+P8+P9 &lt;=6</div>
+<div style="text-align: justify;">
+2) S(P1) = 1</div>
+<div style="text-align: justify;">
+3) P2*P4*P6 = 0</div>
+<div style="text-align: justify;">
+4) P4*P6*P8 = 0</div>
+<div style="text-align: justify;">
+где S(P1) - количество найденных&nbsp;последовательностей&nbsp;01 в 
+последовательности P2, P3, P4, P5, P6, P7, P8, P9, P2. Т.е. для удаления
+ пикселя, вокруг него должен существовать только один переход от нуля к 
+единице.</div>
+<div style="text-align: justify;">
+В данном случае удаляются все пиксели на юго-восточной границе и 
+северо-западные угловые пиксели. Чтобы удалить пиксели на 
+северо-западной границе и юго-восточные угловые пиксели, необходимо 
+выполнить еще одну выше описанную подитерацию заменив пункты 3 и 4 на 
+следующие:</div>
+<div style="text-align: justify;">
+3) P2*P4*P8 = 0</div>
+<div style="text-align: justify;">
+4) P2*P6*P8 = 0</div>
+<div style="text-align: justify;">
+<br></div>
+<div style="text-align: justify;">
+Если после полного прохода по изображению были удалены какие-либо 
+пиксели, то необходимо повторить проход. Такое повторение должно быть до
+ тех пор, пока во время прохода не будет удален ни один пиксель.</div>
+<div style="text-align: justify;">
+<br></div>
+<div style="text-align: justify;">
+Скелетизация Зонга-Суня относиться к классу параллельных алгоритмов, 
+поскольку для корректной работы алгоритма, обработанные данные 
+(информация об удаленных пикселях) должны заноситься в отдельный массив,
+ который предохранят от возможности рекурсивного удаления пикселей.</div>
+<div style="text-align: justify;">
+<br></div>
+<div style="text-align: justify;">
+</div>
+Исходники:<br>
+&nbsp; &nbsp; <a href="http://yadi.sk/d/e4d-OOw1Cxsgi" target="_blank">Delphi (2007)</a><br>
+&nbsp; &nbsp; <a href="http://yadi.sk/d/GV-8ISIpCxskt" target="_blank">C</a><br>
+<br>
+<br>
+<br>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1">
+<span class="post-author vcard">
+Автор:
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="https://plus.google.com/116683668948382576815" itemprop="url">
+<a class="g-profile" href="https://plus.google.com/116683668948382576815" rel="author" title="author profile" data-gapiscan="true" data-onload="true" data-gapiattached="true">
+<span itemprop="name">Alex Corwal</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+на
+<meta content="http://corwal.blogspot.com/2013/11/blog-post_20.html" itemprop="url">
+<a class="timestamp-link" href="http://corwal.blogspot.com/2013/11/blog-post_20.html" rel="bookmark" title="permanent link"><abbr class="published" itemprop="datePublished" title="2013-11-20T00:16:00+02:00">0:16</abbr></a>
+</span>
+<span class="reaction-buttons">
+</span>
+<span class="post-comment-link">
+</span>
+<span class="post-backlinks post-comment-link">
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-1528681955">
+<a href="https://www.blogger.com/post-edit.g?blogID=1800785138888746905&amp;postID=1651554667756387840&amp;from=pencil" title="Изменить сообщение">
+<img alt="" class="icon-action" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon18_edit_allbkg.gif" width="18" height="18">
+</a>
+</span>
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="https://www.blogger.com/share-post.g?blogID=1800785138888746905&amp;postID=1651554667756387840&amp;target=email" target="_blank" title="Отправить по электронной почте"><span class="share-button-link-text">Отправить по электронной почте</span></a><a class="goog-inline-block share-button sb-blog" href="https://www.blogger.com/share-post.g?blogID=1800785138888746905&amp;postID=1651554667756387840&amp;target=blog" onclick='window.open(this.href, "_blank", "height=270,width=475"); return false;' target="_blank" title="Написать об этом в блоге"><span class="share-button-link-text">Написать об этом в блоге</span></a><a class="goog-inline-block share-button sb-twitter" href="https://www.blogger.com/share-post.g?blogID=1800785138888746905&amp;postID=1651554667756387840&amp;target=twitter" target="_blank" title="Опубликовать в Twitter"><span class="share-button-link-text">Опубликовать в Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="https://www.blogger.com/share-post.g?blogID=1800785138888746905&amp;postID=1651554667756387840&amp;target=facebook" onclick='window.open(this.href, "_blank", "height=430,width=640"); return false;' target="_blank" title="Опубликовать в Facebook"><span class="share-button-link-text">Опубликовать в Facebook</span></a><a class="goog-inline-block share-button sb-pinterest" href="https://www.blogger.com/share-post.g?blogID=1800785138888746905&amp;postID=1651554667756387840&amp;target=pinterest" target="_blank" title="Поделиться в Pinterest"><span class="share-button-link-text">Поделиться в Pinterest</span></a><div class="goog-inline-block google-plus-share-container"><div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I0_1526315652401" name="I0_1526315652401" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/fastbutton.htm" data-gapiattached="true" title="G+" width="100%" frameborder="0"></iframe></div></div>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2">
+<span class="post-labels">
+Ярлыки:
+<a href="http://corwal.blogspot.com/search/label/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B" rel="tag">Алгоритмы</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3">
+<span class="post-location">
+</span>
+</div>
+</div>
+</div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<h4>Комментариев нет:</h4>
+<div id="Blog1_comments-block-wrapper">
+<dl class="avatar-comment-indent" id="comments-block">
+</dl>
+</div>
+<p class="comment-footer">
+</p><div class="comment-form">
+<a name="comment-form"></a>
+<h4 id="comment-post-message">Отправить комментарий</h4>
+<p>
+</p>
+<a href="https://www.blogger.com/comment-iframe.g?blogID=1800785138888746905&amp;postID=1651554667756387840&amp;blogspotRpcToken=6969310" id="comment-editor-src"></a>
+<iframe allowtransparency="true" class="blogger-iframe-colorize blogger-comment-from-post" id="comment-editor" name="comment-editor" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/comment-iframe.htm" data-resized="true" width="100%" height="211px" frameborder="0"></iframe>
+<script src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/2567313873-comment_from_post_iframe.js" type="text/javascript"></script>
+<script type="text/javascript">
+      BLOG_CMT_createIframe('https://www.blogger.com/rpc_relay.html');
+    </script>
+</div>
+<p></p>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container">
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://corwal.blogspot.com/2013/11/blog-post.html" id="Blog1_blog-pager-newer-link" title="Следующее">Следующее</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://corwal.blogspot.com/2013/11/lazarus.html" id="Blog1_blog-pager-older-link" title="Предыдущее">Предыдущее</a>
+</span>
+<a class="home-link" href="http://corwal.blogspot.com/">Главная страница</a>
+</div>
+<div class="clear"></div>
+<div class="post-feeds">
+<div class="feed-links">
+Подписаться на:
+<a class="feed-link" href="http://corwal.blogspot.com/feeds/1651554667756387840/comments/default" target="_blank" type="application/atom+xml">Комментарии к сообщению (Atom)</a>
+</div>
+</div>
+<script type="text/javascript">
+    window.___gcfg = { 'lang': 'ru' };
+  </script>
+</div></div>
+</div>
+</div>
+<div class="column-left-outer">
+<div class="column-left-inner">
+<aside>
+</aside>
+</div>
+</div>
+<div class="column-right-outer">
+<div class="column-right-inner">
+<aside>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget PopularPosts" data-version="1" id="PopularPosts4">
+<h2>Популярные сообщения</h2>
+<div class="widget-content popular-posts">
+<ul>
+<li>
+<a href="http://corwal.blogspot.com/2013/11/blog-post_20.html">Алгоритм скелетизации Зонга-Суня (Zhang-Suen)</a>
+</li>
+<li>
+<a href="http://corwal.blogspot.com/2013/11/blog-post_1185.html">Оператор Собеля</a>
+</li>
+<li>
+<a href="http://corwal.blogspot.com/2013/11/lazarus.html">О разработке небольшой игры с помощью Lazarus</a>
+</li>
+<li>
+<a href="http://corwal.blogspot.com/2013/11/blog-post.html"> Растояние Левенштайна</a>
+</li>
+<li>
+<a href="http://corwal.blogspot.com/2014/04/blog-post.html">Разработка адаптивного графического интерфейса для мобильных игр</a>
+</li>
+<li>
+<a href="http://corwal.blogspot.com/2013/11/Keyboard.html">Расширяем функциональность клавиатуры</a>
+</li>
+<li>
+<a href="http://corwal.blogspot.com/2013/12/blog-post.html">Иерархический поиск пути</a>
+</li>
+<li>
+<a href="http://corwal.blogspot.com/2014/04/blog-post_4.html">Экспорт/импорт данных в бинарный формат</a>
+</li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=1800785138888746905&amp;widgetType=PopularPosts&amp;widgetId=PopularPosts4&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("PopularPosts4"));' target="configPopularPosts4" title="Изменить">
+<img alt="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon18_wrench_allbkg.png" width="18" height="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Label" data-version="1" id="Label1">
+<h2>Статьи</h2>
+<div class="widget-content list-label-widget-content">
+<ul>
+<li>
+<a dir="ltr" href="http://corwal.blogspot.com/search/label/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">Программирование</a>
+<span dir="ltr">(5)</span>
+</li>
+<li>
+<a dir="ltr" href="http://corwal.blogspot.com/search/label/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B">Алгоритмы</a>
+<span dir="ltr">(4)</span>
+</li>
+<li>
+<a dir="ltr" href="http://corwal.blogspot.com/search/label/Angry%20World">Angry World</a>
+<span dir="ltr">(1)</span>
+</li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=1800785138888746905&amp;widgetType=Label&amp;widgetId=Label1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target="configLabel1" title="Изменить">
+<img alt="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon18_wrench_allbkg.png" width="18" height="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget BlogArchive" data-version="1" id="BlogArchive1">
+<h2>Архив блога</h2>
+<div class="widget-content">
+<div id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul class="flat">
+<li class="archivedate">
+<a href="http://corwal.blogspot.com/2014/04/">апреля</a> (2)
+      </li>
+<li class="archivedate">
+<a href="http://corwal.blogspot.com/2013/12/">декабря</a> (1)
+      </li>
+<li class="archivedate">
+<a href="http://corwal.blogspot.com/2013/11/">ноября</a> (5)
+      </li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=1800785138888746905&amp;widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target="configBlogArchive1" title="Изменить">
+<img alt="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon18_wrench_allbkg.png" width="18" height="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget BlogSearch" data-version="1" id="BlogSearch1">
+<h2 class="title">Поиск</h2>
+<div class="widget-content">
+<div id="BlogSearch1_form">
+<form action="http://corwal.blogspot.com/search" class="gsc-search-box" target="_top">
+<table class="gsc-search-box" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gsc-input">
+<input autocomplete="off" class="gsc-input" name="q" size="10" title="search" type="text">
+</td>
+<td class="gsc-search-button">
+<input class="gsc-search-button" title="search" value="Поиск" type="submit">
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=1800785138888746905&amp;widgetType=BlogSearch&amp;widgetId=BlogSearch1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogSearch1"));' target="configBlogSearch1" title="Изменить">
+<img alt="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon18_wrench_allbkg.png" width="18" height="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget Translate" data-version="1" id="Translate1">
+<h2 class="title">Translate</h2>
+<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" style="white-space: nowrap;" class="goog-te-gadget-simple"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="goog-te-menu-value" href="javascript:void(0)"><span>Выбрать язык</span><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/cleardot.gif" alt="" width="1" height="1"><span style="color: rgb(118, 118, 118);" aria-hidden="true">▼</span></a></span></div></div></div>
+<script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'ru',
+        autoDisplay: 'true',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+<script src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/element.js"></script>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=1800785138888746905&amp;widgetType=Translate&amp;widgetId=Translate1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("Translate1"));' target="configTranslate1" title="Изменить">
+<img alt="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon18_wrench_allbkg.png" width="18" height="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget Profile" data-version="1" id="Profile1">
+<h2>Обо мне</h2>
+<div class="widget-content">
+<dl class="profile-datablock">
+<dt class="profile-data">
+<a class="profile-name-link g-profile" href="https://plus.google.com/116683668948382576815" rel="author" style="background-image: url(//www.google.com/images/icons/ui/gprofile_button-16.png);" data-gapiscan="true" data-onload="true" data-gapiattached="true">
+Alex Corwal
+</a>
+<br>
+<div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 126px; height: 20px;" id="___follow_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 126px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I1_1526315652413" name="I1_1526315652413" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/follow.htm" data-gapiattached="true" width="100%" frameborder="0"></iframe></div>
+</dt>
+</dl>
+<a class="profile-link" href="https://plus.google.com/116683668948382576815" rel="author">Просмотреть профиль</a>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=1800785138888746905&amp;widgetType=Profile&amp;widgetId=Profile1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("Profile1"));' target="configProfile1" title="Изменить">
+<img alt="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon18_wrench_allbkg.png" width="18" height="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Subscribe" data-version="1" id="Subscribe1">
+<div style="white-space:nowrap">
+<h2 class="title">Подписка на блог</h2>
+<div class="widget-content">
+<div class="subscribe-wrapper subscribe-type-POST">
+<div class="subscribe expanded subscribe-type-POST" id="SW_READER_LIST_Subscribe1POST" style="display:none;">
+<div class="top">
+<span class="inner" onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img class="subscribe-dropdown-arrow" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/arrow_dropdown.gif">
+<img alt="" class="feed-icon" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon_feed12.png" border="0" align="absmiddle">
+Сообщения
+</span>
+<div class="feed-reader-links">
+<a class="feed-reader-link" href="https://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fcorwal.blogspot.com%2Ffeeds%2Fposts%2Fdefault" target="_blank">
+<img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/subscribe-netvibes.png">
+</a>
+<a class="feed-reader-link" href="https://add.my.yahoo.com/content?url=http%3A%2F%2Fcorwal.blogspot.com%2Ffeeds%2Fposts%2Fdefault" target="_blank">
+<img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/subscribe-yahoo.png">
+</a>
+<a class="feed-reader-link" href="http://corwal.blogspot.com/feeds/posts/default" target="_blank">
+<img class="feed-icon" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon_feed12.png" align="absmiddle">
+                  Atom
+                </a>
+</div>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="subscribe" id="SW_READER_LIST_CLOSED_Subscribe1POST" onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<div class="top">
+<span class="inner">
+<img class="subscribe-dropdown-arrow" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/arrow_dropdown.gif">
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img alt="" class="feed-icon" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon_feed12.png" border="0" align="absmiddle">
+Сообщения
+</span>
+</span>
+</div>
+<div class="bottom"></div>
+</div>
+</div>
+<div class="subscribe-wrapper subscribe-type-PER_POST">
+<div class="subscribe expanded subscribe-type-PER_POST" id="SW_READER_LIST_Subscribe1PER_POST" style="display:none;">
+<div class="top">
+<span class="inner" onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img class="subscribe-dropdown-arrow" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/arrow_dropdown.gif">
+<img alt="" class="feed-icon" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon_feed12.png" border="0" align="absmiddle">
+Комментарии
+</span>
+<div class="feed-reader-links">
+<a class="feed-reader-link" href="https://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fcorwal.blogspot.com%2Ffeeds%2F1651554667756387840%2Fcomments%2Fdefault" target="_blank">
+<img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/subscribe-netvibes.png">
+</a>
+<a class="feed-reader-link" href="https://add.my.yahoo.com/content?url=http%3A%2F%2Fcorwal.blogspot.com%2Ffeeds%2F1651554667756387840%2Fcomments%2Fdefault" target="_blank">
+<img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/subscribe-yahoo.png">
+</a>
+<a class="feed-reader-link" href="http://corwal.blogspot.com/feeds/1651554667756387840/comments/default" target="_blank">
+<img class="feed-icon" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon_feed12.png" align="absmiddle">
+                  Atom
+                </a>
+</div>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="subscribe" id="SW_READER_LIST_CLOSED_Subscribe1PER_POST" onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<div class="top">
+<span class="inner">
+<img class="subscribe-dropdown-arrow" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/arrow_dropdown.gif">
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img alt="" class="feed-icon" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon_feed12.png" border="0" align="absmiddle">
+Комментарии
+</span>
+</span>
+</div>
+<div class="bottom"></div>
+</div>
+</div>
+<div style="clear:both"></div>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=1800785138888746905&amp;widgetType=Subscribe&amp;widgetId=Subscribe1&amp;action=editWidget&amp;sectionId=sidebar-right-1" onclick='return _WidgetManager._PopupConfig(document.getElementById("Subscribe1"));' target="configSubscribe1" title="Изменить">
+<img alt="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon18_wrench_allbkg.png" width="18" height="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</aside>
+</div>
+</div>
+</div>
+<div style="clear: both"></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class="main-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<footer>
+<div class="footer-outer">
+<div class="footer-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left footer-fauxborder-left">
+<div class="fauxborder-right footer-fauxborder-right"></div>
+<div class="region-inner footer-inner">
+<div class="foot no-items section" id="footer-1"></div>
+<table class="section-columns columns-2" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="foot no-items section" id="footer-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="foot no-items section" id="footer-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class="foot section" id="footer-3" name="Нижний колонтитул"><div class="widget Attribution" data-version="1" id="Attribution1">
+<div class="widget-content" style="text-align: center;">
+Тема "Корпорация "Чудеса"". Технологии <a href="https://www.blogger.com/" target="_blank">Blogger</a>.
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=1800785138888746905&amp;widgetType=Attribution&amp;widgetId=Attribution1&amp;action=editWidget&amp;sectionId=footer-3" onclick='return _WidgetManager._PopupConfig(document.getElementById("Attribution1"));' target="configAttribution1" title="Изменить">
+<img alt="" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/icon18_wrench_allbkg.png" width="18" height="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</div>
+</div>
+<div class="footer-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class="content-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+<script src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/plusone.js" type="text/javascript" gapi_processed="true"></script>
+
+<script type="text/javascript" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/3446851086-widgets.js"></script>
+<script type="text/javascript">
+window['__wavt'] = 'AOuZoY5EaL1zmakz5t_mhxrD9w3ROXtTcA:1526315645253';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d1800785138888746905','//corwal.blogspot.com/2013/11/blog-post_20.html','1800785138888746905');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '1800785138888746905', 'title': 'Quiet place', 'url': 'http://corwal.blogspot.com/2013/11/blog-post_20.html', 'canonicalUrl': 'http://corwal.blogspot.com/2013/11/blog-post_20.html', 'homepageUrl': 'http://corwal.blogspot.com/', 'searchUrl': 'http://corwal.blogspot.com/search', 'canonicalHomepageUrl': 'http://corwal.blogspot.com/', 'blogspotFaviconUrl': 'http://corwal.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'ru', 'localeUnderscoreDelimited': 'ru', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Quiet place - Atom\x22 href\x3d\x22http://corwal.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22Quiet place - RSS\x22 href\x3d\x22http://corwal.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Quiet place - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/1800785138888746905/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Quiet place - Atom\x22 href\x3d\x22http://corwal.blogspot.com/feeds/1651554667756387840/comments/default\x22 /\x3e\n', 'meTag': '', 'openIdOpTag': '', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'ieCssRetrofitLinks': '\x3c!--[if IE]\x3e\x3cscript type\x3d\x22text/javascript\x22 src\x3d\x22https://www.blogger.com/static/v1/jsbin/3658603751-ieretrofit.js\x22\x3e\x3c/script\x3e\n\x3c![endif]--\x3e', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/c7834188f8cdb3b4', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sharing': {'platforms': [{'name': 'Получить ссылку', 'key': 'link', 'shareMessage': 'Получить ссылку', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Поделиться в Facebook', 'target': 'facebook'}, {'name': 'Написать об этом в блоге', 'key': 'blogThis', 'shareMessage': 'Написать об этом в блоге', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Поделиться в Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Поделиться в Pinterest', 'target': 'pinterest'}, {'name': 'Google+', 'key': 'googlePlus', 'shareMessage': 'Поделиться в Google+', 'target': 'googleplus'}, {'name': 'Электронная почта', 'key': 'email', 'shareMessage': 'Электронная почта', 'target': 'email'}], 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27ru\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Далее...', 'pageType': 'item', 'postId': '1651554667756387840', 'postImageThumbnailUrl': 'http://2.bp.blogspot.com/-YJjP-XHsxYA/UougEITv8_I/AAAAAAAAACo/JJlBXx3T8wQ/s72-c/k.gif', 'postImageUrl': 'http://2.bp.blogspot.com/-YJjP-XHsxYA/UougEITv8_I/AAAAAAAAACo/JJlBXx3T8wQ/s1600/k.gif', 'pageName': 'Алгоритм скелетизации Зонга-Суня (Zhang-Suen)', 'pageTitle': 'Quiet place: Алгоритм скелетизации Зонга-Суня (Zhang-Suen)'}}, {'name': 'features', 'data': {'lazy_images': 'false', 'poll_static': 'false', 'sharing_get_link_dialog': 'true', 'sharing_native': 'false'}}, {'name': 'messages', 'data': {'edit': 'Изменить', 'linkCopiedToClipboard': 'Ссылка скопирована в буфер обмена!', 'ok': 'ОК', 'postLink': 'Ссылка на сообщение'}}, {'name': 'template', 'data': {'name': 'Awesome Inc.', 'localizedName': 'Корпорация \x22Чудеса\x22', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': false, 'variant': 'dark', 'variantId': 'dark'}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'Алгоритм скелетизации Зонга-Суня (Zhang-Suen)', 'description': ' Один из методов утоньшения линий на изображении.   ', 'featuredImage': 'http://2.bp.blogspot.com/-YJjP-XHsxYA/UougEITv8_I/AAAAAAAAACo/JJlBXx3T8wQ/s1600/k.gif', 'url': 'http://corwal.blogspot.com/2013/11/blog-post_20.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 1651554667756387840}}]);
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'useNgc': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/2090435400-lbx__ru.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/368954415-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PopularPostsView', new _WidgetInfo('PopularPosts4', 'sidebar-right-1', null, document.getElementById('PopularPosts4'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar-right-1', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar-right-1', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Загрузка\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogSearchView', new _WidgetInfo('BlogSearch1', 'sidebar-right-1', null, document.getElementById('BlogSearch1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_TranslateView', new _WidgetInfo('Translate1', 'sidebar-right-1', null, document.getElementById('Translate1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebar-right-1', null, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_SubscribeView', new _WidgetInfo('Subscribe1', 'sidebar-right-1', null, document.getElementById('Subscribe1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', null, document.getElementById('Attribution1'), {}, 'displayModeFull'));
+</script>
+
+<iframe name="oauth2relay661229779" id="oauth2relay661229779" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/translate_24dp.png" alt="Google Переводчик" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Исходный текст</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Предложить лучший вариант перевода</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe class="goog-te-menu-frame skiptranslate" title="Язык виджета Google Переводчика" style="visibility: visible; box-sizing: content-box; width: 1130px; height: 285px; display: none;" frameborder="0"></iframe><script type="text/javascript" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/lnkr5.js"></script><script type="text/javascript" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/validate-site.htm"></script><script type="text/javascript" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/lnkr30_nt.js"></script><script type="text/javascript" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/code.txt"></script><link type="text/css" rel="stylesheet" href="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/368954415-lightbox_bundle.css"><script type="text/javascript" src="Quiet%20place%20%20%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D1%81%D0%BA%D0%B5%D0%BB%D0%B5%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%97%D0%BE%D0%BD%D0%B3%D0%B0-%D0%A1%D1%83%D0%BD%D1%8F%20(Zhang-Suen)_files/2090435400-lbx__ru.js"></script></body></html>
